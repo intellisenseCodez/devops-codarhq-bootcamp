@@ -1,0 +1,3 @@
+
+
+echo "provision nginx server"

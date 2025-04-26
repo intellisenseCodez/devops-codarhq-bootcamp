@@ -1,0 +1,2 @@
+
+echo "provision rabbitmq server"

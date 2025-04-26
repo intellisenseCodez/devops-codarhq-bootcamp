@@ -1,0 +1,146 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+    config.vm.box = "eurolinux-vagrant/centos-stream-9"  # image
+
+    # database server: mariadb
+    config.vm.define "mariadb" do |db|
+        db.vm.hostname = "db01"
+
+        db.vm.network "forwarded_port", guest: 3306, host: 3306, auto_correct: true
+        db.vm.network "private_network", ip: "192.168.50.10"
+
+        # provider
+        db.vm.provider "virtualbox" do |vb|
+            vb.name = "mariadb_vb"
+            vb.memory = "600"
+            vb.gui = false
+            vb.cpus = 2
+        end
+
+        # provisioning
+        db.vm.provision "shell", path: "./provisions/mariadb.sh"
+    end
+
+    # memcached server
+    config.vm.define "memcached" do |mem|
+        mem.vm.hostname = "mem01"
+
+        mem.vm.network "forwarded_port", guest: 11211, host: 11211, auto_correct: true
+        mem.vm.network "private_network", ip: "192.168.50.11"
+
+        # provider
+        mem.vm.provider "virtualbox" do |vb|
+            vb.name = "mem_vb"
+            vb.memory = "600"
+            vb.gui = false
+            vb.cpus = 2
+        end
+
+        # provisioning
+        mem.vm.provision "shell", path: "./provisions/memcached.sh"
+    end
+
+    # rabbitMQ server
+    config.vm.define "rabbitMQ" do |rab|
+        rab.vm.hostname = "rab01"
+
+        rab.vm.network "forwarded_port", guest: 5672, host: 5672, auto_correct: true
+        rab.vm.network "private_network", ip: "192.168.50.12"
+
+        # provider
+        rab.vm.provider "virtualbox" do |vb|
+            vb.name = "rab_vb"
+            vb.memory = "600"
+            vb.gui = false
+            vb.cpus = 2
+        end
+
+        # provisioning
+        rab.vm.provision "shell", path: "./provisions/rabbitmq.sh"
+    end
+
+    # tomcat server
+    config.vm.define "tomcat" do |tom|
+        tom.vm.hostname = "tom01"
+
+        tom.vm.network "forwarded_port", guest: 8080, host: 8080, auto_correct: true
+        tom.vm.network "private_network", ip: "192.168.50.13"
+
+        # provider
+        tom.vm.provider "virtualbox" do |vb|
+            vb.name = "tom_vb"
+            vb.memory = "600"
+            vb.gui = false
+            vb.cpus = 2
+        end
+
+        # provisioning
+        tom.vm.provision "shell", path: "./provisions/tomcat.sh"
+    end
+
+    # nginx server
+    config.vm.define "nginx" do |web|
+        web.vm.hostname = "web01"
+
+        web.vm.network "forwarded_port", guest: 80, host: 80, auto_correct: true
+        web.vm.network "private_network", ip: "192.168.50.14"
+
+        # provider
+        web.vm.provider "virtualbox" do |vb|
+            vb.name = "web_vb"
+            vb.memory = "600"
+            vb.gui = false
+            vb.cpus = 2
+        end
+
+        # provisioning
+        web.vm.provision "shell", path: "./provisions/nginx.sh"
+    end
+
+
+    # prometheus server
+    config.vm.define "prom" do |prom|
+        prom.vm.hostname = "prom01"
+
+        prom.vm.network "forwarded_port", guest: 9090, host: 9090, auto_correct: true
+        prom.vm.network "private_network", ip: "192.168.50.15"
+
+        # provider
+        prom.vm.provider "virtualbox" do |vb|
+            vb.name = "prom_vb"
+            vb.memory = "600"
+            vb.gui = false
+            vb.cpus = 2
+        end
+
+        # provisioning
+        prom.vm.provision "shell", path: "./provisions/prometheus.sh"
+    end
+
+
+    # grafana server
+    config.vm.define "graf" do |graf|
+        graf.vm.hostname = "graf01"
+
+        graf.vm.network "forwarded_port", guest: 3000, host: 3000, auto_correct: true
+        graf.vm.network "private_network", ip: "192.168.50.16"
+
+        # provider
+        graf.vm.provider "virtualbox" do |vb|
+            vb.name = "graf_vb"
+            vb.memory = "600"
+            vb.gui = false
+            vb.cpus = 2
+        end
+
+        # provisioning
+        graf.vm.provision "shell", path: "./provisions/grafana.sh"
+    end
+
+
+
+
+end
