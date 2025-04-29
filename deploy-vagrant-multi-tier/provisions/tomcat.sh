@@ -77,20 +77,21 @@ fi
 # Application deployment
 echo "Deploying application..."
 cd /vagrant/
-# mvn install
-mvn clean install -DskipTests
+mvn install
+
 sudo systemctl stop tomcat
 sleep 60
 sudo rm -rf ${TOMCAT_INSTALL_DIR}/webapps/ROOT*
+
 sudo cp /vagrant/target/${APP_WAR} ${TOMCAT_INSTALL_DIR}/webapps/ROOT.war
 
 sudo chown tomcat.tomcat ${TOMCAT_INSTALL_DIR}/webapps -R
 
 
 sudo systemctl start tomcat
+
 sleep 120
 sudo cp ${APP_PROPERTIES} ${TOMCAT_INSTALL_DIR}/webapps/ROOT/WEB-INF/classes/application.properties
 sudo systemctl restart tomcat
 
 echo "Tomcat installation and configuration completed successfully!"
-

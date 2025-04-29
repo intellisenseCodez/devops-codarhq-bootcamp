@@ -1,37 +1,38 @@
 #!/bin/bash
 
-# adding repository and installing nginx		
-sudo yum update
+# Update system and install Nginx
+sudo yum update -y
 sudo yum install nginx -y
-cat <<EOT > vproapp
+
+# Create Nginx config directory structure (CentOS/RHEL style)
+sudo mkdir -p /etc/nginx/conf.d
+
+# Create the vproapp configuration
+cat <<EOT | sudo tee /etc/nginx/conf.d/vproapp.conf
 upstream vproapp {
-
- server app01:8080;
-
+    server 192.168.50.13:8080;
 }
 
 server {
-
-  listen 80;
-
-location / {
-
-  proxy_pass http://vproapp;
-
+    listen 80;
+    
+    location / {
+        proxy_pass http://vproapp;
+        proxy_set_header Host \$host;
+        proxy_set_header X-Real-IP \$remote_addr;
+    }
 }
-
-}
-
 EOT
 
-# moving vproapp file into the sites-available
-sudo mv vproapp /etc/nginx/sites-available/vproapp
-#removing the default nginx in the sites-enabled
-sudo rm -rf /etc/nginx/sites-enabled/default
-# link the vproapp to the sites-enabled
-sudo ln -s /etc/nginx/sites-available/vproapp /etc/nginx/sites-enabled/vproapp
+# Remove default CentOS Nginx config if it exists
+sudo rm -f /etc/nginx/conf.d/default.conf
 
-#starting nginx service and firewall
+# Validate Nginx configuration
+sudo nginx -t
+
+# Start and enable Nginx
 sudo systemctl start nginx
 sudo systemctl enable nginx
 sudo systemctl restart nginx
+
+echo "Nginx configuration for vproapp has been set up successfully"
