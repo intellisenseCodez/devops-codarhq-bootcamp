@@ -47,7 +47,7 @@ Vagrant.configure("2") do |config|
     config.vm.define "rabbitMQ" do |rab|
         rab.vm.hostname = "rab01"
 
-        rab.vm.network "forwarded_port", guest: 5672, host: 5672, auto_correct: true
+        rab.vm.network "forwarded_port", guest: 15672, host: 15672, auto_correct: true
         rab.vm.network "private_network", ip: "192.168.50.12"
 
         # provider
