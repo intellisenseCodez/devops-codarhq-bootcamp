@@ -7,7 +7,7 @@
 </h1>
 
 <p align="center">
-DevOps (machine learning operations) is a must-know skill for many data professionals. Master the fundamentals of MLOps, from training and experimentation to deployment and monitoring.
+DevOps (Developers and Operations) is a set of practices, philosophies, and tools that bridge software development (Dev) and IT operations (Ops) to enable faster, more reliable, and automated software delivery..
 </p>
 
 <p align="center">
