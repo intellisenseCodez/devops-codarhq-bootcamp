@@ -3,7 +3,7 @@
 </p>
 
 <h1 align="center">
-    <strong>🚀 DEVOPS: Complete DevOps Bootcamp (April-Septempter 2025)</strong>
+    <strong>🚀 Complete DevOps Bootcamp (April - September 2025)</strong>
 </h1>
 
 <p align="center">
