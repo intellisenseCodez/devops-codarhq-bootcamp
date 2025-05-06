@@ -1,5 +1,7 @@
 # File Permissions Management in Linux
 
+![](../resources/images/file-permission.png)
+
 ## Introduction to File Permissions
 Linux file permissions determine who can read, write, or execute files and directories. Each file and directory has three levels of permission:
 - **Owner (User)**: The creator of the file.
