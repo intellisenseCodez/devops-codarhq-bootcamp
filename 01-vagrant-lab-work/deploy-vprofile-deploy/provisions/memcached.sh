@@ -4,7 +4,7 @@
 sudo yum update -y
 
 sudo yum install memcached -y
-sudo yum install libmemcached -y
+
 
 sudo systemctl start memcached
 sudo systemctl enable memcached

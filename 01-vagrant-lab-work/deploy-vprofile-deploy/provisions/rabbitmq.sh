@@ -5,21 +5,35 @@ sudo yum update -y
 # add EPEL repository
 sudo yum install epel-release -y
 
+# install the memcache service
+sudo yum install memcached -y
+
 sudo yum install wget -y
 
 cd /tmp/
 
-wget http://packages.erlang-solutions.com/erlang-solutions-2.0-1.noarch.rpm
-sudo rpm -Uvh erlang-solutions-2.0-1.noarch.rpm
-sudo yum -y install erlang socat
-curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash
+# downloaded RPM
+sudo wget https://packages.erlang-solutions.com/erlang-solutions-2.0-1.noarch.rpm
 
+
+# installing the downloaded RPM
+sudo sudo rpm -Uvh erlang-solutions-2.0-1.noarch.rpm
+
+# installing erlang
+sudo yum -y install erlang socat
+
+
+# Downloading RabbitMQ 
+sudo curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash
+
+# install the RabbitMQ server
 sudo yum install rabbitmq-server -y
 
 sudo systemctl start rabbitmq-server
 sudo systemctl enable rabbitmq-server
 sudo systemctl status rabbitmq-server
 
+# Configure RabbitMQ
 sudo sh -c 'echo "[{rabbit, [{loopback_users, []}]}]." > /etc/rabbitmq/rabbitmq.config'
 
 # add user with username and password <test>

@@ -1,4 +1,13 @@
+# What is Linux?
+Strictly speaking, Linux is a kernel. A kernel provides access to the computer hardware and control access to resources such as:
 
+- Files and data.
+- Running programs.
+- Loading programs into memory.
+- Networks.
+- Security and firewall.
+- Device driver management.
+- Other resources etc.
 
 # Linux Operating System
 

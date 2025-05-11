@@ -1,12 +1,12 @@
 #!/bin/bash
 
-DATABASE_PASS='admin1234'
+DATABASE_PASS='admin123'
 
 sudo yum update -y
 sudo yum upgrade -y
 
 # add EPEL repository
-sudo yum install epel-release -y
+sudo yum install epel-release -y  # provides additional software packages
 
 # installing mariadb
 sudo yum install mariadb-server -y
@@ -21,8 +21,8 @@ sudo systemctl status mariadb
 sudo mysql -u root -e "DROP DATABASE IF EXISTS accounts;"
 sudo mysql -u root -e "CREATE DATABASE accounts;"
 
-sudo mysql -u root -e "CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin1234';"
-sudo mysql -u root -e "GRANT ALL PRIVILEGES ON accounts.* TO 'admin'@'localhost';"
+sudo mysql -u root -e "CREATE USER 'admin'@'%' IDENTIFIED BY 'admin1234';"
+sudo mysql -u root -e "GRANT ALL PRIVILEGES ON accounts.* TO 'admin'@'%';"
 
 
 

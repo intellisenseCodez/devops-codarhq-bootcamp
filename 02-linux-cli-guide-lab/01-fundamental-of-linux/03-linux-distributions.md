@@ -1,5 +1,17 @@
 # Linux Distributions
 
+The kernel decides who will use a resource, for how long and when.You can download the Linux kernel from the official web site. However, the Linux kernel itself is useless unless you get all the applications such as text editors, email clients, browsers, office applications, etc. Therefore, someone came up with idea of a Linux distribution. A typical Linux distribution includes:
+
+- Linux kernel.
+- GNU application utilities such as text editors, browsers etc.
+- Collection of various GUI (X windows) applications and utilities.
+- Office application software.
+- Software development tools and compilers.
+- Thousands of ready to use application software packages.
+- Linux Installation programs/scripts.
+- Linux post installation management tools daily work such as adding users, installing applications, etc.
+- And, a Shell to glue everything together.
+
 Linux distributions (distros) are different versions of Linux that package the Linux kernel with various software, system utilities, and package managers. Each distro is designed for different use cases, such as personal computing, server management, or security.
 
 Here are some popular Linux distributions:

@@ -10,18 +10,15 @@ sudo mkdir -p /etc/nginx/conf.d
 # Create the vproapp configuration
 cat <<EOT | sudo tee /etc/nginx/conf.d/vproapp.conf
 upstream vproapp {
-    server 192.168.50.13:8080;
-}
-
-server {
-    listen 80;
-    
-    location / {
+    server app01:8080;
+    }
+    server {
+        listen 80;
+        location / {
         proxy_pass http://vproapp;
-        proxy_set_header Host \$host;
-        proxy_set_header X-Real-IP \$remote_addr;
     }
 }
+
 EOT
 
 # Remove default CentOS Nginx config if it exists
