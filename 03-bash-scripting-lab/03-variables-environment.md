@@ -85,11 +85,13 @@ printf "%s\n" ${varName}
 ## Default shell variables value
 
 
-### The := syntax
+### The `:-`, `:+`, `:=` and `:?` syntax
 If the variable is an empty, you can assign a default value. The syntax is:
 ```bash
-echo ${grandslam="Default value"} 
-echo ${grandslam:="Default value"}
+echo ${grandslam:-val}   # $grandslam, or val if unset
+echo ${grandslam:+val}   # val if $grandslam is set
+echo ${grandslam:=val}   # Set $grandslam to val if unset
+echo ${grandslam:?message}   # Show message and exit if $grandslam is unset
 ```
 
 ## Qutoting
@@ -117,7 +119,7 @@ You can use the following backslash-escaped characters.
 \cx    a control-x character
 ```
 ## Export Variables
-The export builtin automatically exports to the environment of child processes.
+By default all user defined variables are local. Use export command to export variables and functions to child processes. 
 ```bash
 export backup="/nas10/mysql"
 echo "Backup dir $backup"
@@ -161,5 +163,3 @@ Display the "Are you sure (Y/N)?" prompt:
 read -r -p "Are you sure (Y/n)? " answer
 echo "You typed: $answer"
 ```
-
-### Handling multiple values

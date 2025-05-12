@@ -6,10 +6,12 @@ Computers understand the language of zeros and ones, known as binary language. I
 - It is a command language interpreter (CLI) that executes commands read from the standard input device such as keyboard or from a file.
 - The shell is not part of system kernel, but uses the system kernel to execute programs, create files etc.
 - Several shells are available for Linux including:
-    - BASH ( Bourne-Again SHell ) - Most common shell in Linux. It's Open Source.
-    - CSH (C SHell) - The C shell's syntax and usage are very similar to the C programming language.
-    - KSH (Korn SHell) - Created by David Korn at AT & T Bell Labs. The Korn Shell also was the base for the POSIX Shell standard specifications.
-    - TCSH - It is an enhanced but completely compatible version of the Berkeley UNIX C shell (CSH).
+    - **BASH** ( Bourne-Again SHell ) - Most common shell in Linux. It's Open Source.
+    - **CSH** (C SHell) - The C shell's syntax and usage are very similar to the C programming language.
+    - **KSH** (Korn SHell) - Created by David Korn at AT & T Bell Labs. The Korn Shell also was the base for the POSIX Shell standard specifications.
+    - **TCSH** - It is an enhanced but completely compatible version of the Berkeley UNIX C shell (CSH).
+    - **ZSH** - A powerful interactive shell.
+    - **SCSH** -An open-source Unix shell embedded within Scheme programming language.
 
 ## Shell Prompt
 There are various ways to get shell access:
@@ -18,6 +20,7 @@ There are various ways to get shell access:
 - **Connect via secure shell (SSH)** - You will get a shell prompt as soon as you log in into remote server or workstation.
 - **Use the console** - A few Linux system also provides a text-based login system. Generally you get a shell prompt as soon as you log in to the system.
 
+## How to use Linux Shell
 
 1. To find all of the available shells in your system, type the following command:
 ``bash

@@ -2,6 +2,17 @@
 
 Bash is the shell, or command language interpreter, for the Linux operating system. The name is an acronym for the Bourne-Again SHell, a pun on Stephen Bourne, the author of the direct ancestor of the current Unix shell sh, which appeared in the Seventh Edition Bell Labs Research version of Unix Bash Reference Manual
 
+## Bash and Command Types
+The bash shell understands the following types of commands:
+
+- **Aliases** such as ll
+- **Keywords** such as if
+- **Functions** (user defined functions such as genpasswd)
+- **Built** in such as pwd
+- **Files** such as /bin/date
+
+The type command can be used to find out a command type.
+
 
 ## Write our first program: Hello, World!
 Using an editor create a simple bash script file:
@@ -97,7 +108,7 @@ Bash shell offers debugging options which can be turned on or off using set comm
 ```bash
 #!/bin/bash
 ### Turn on debug mode ###
-set -x
+set -n
 
 # Run shell commands
 echo "Hello $(LOGNAME)"
@@ -105,7 +116,7 @@ echo "Today is $(date)"
 echo "Users currently on the machine, and their processes:"
 
 ### Turn OFF debug mode ###
-set +x
+set +n
 
 # Add more commands without debug mode
 ```
