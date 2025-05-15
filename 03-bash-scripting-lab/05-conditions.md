@@ -34,7 +34,8 @@ grep "^ola" /etc/passwd && echo "Ola found in /etc/passwd"
 
 3. Exit if a directory /tmp/foo does not exist
 ```bash
-test ! -d /tmp/foo && { read -p "Directory /tmp/foo not found. Hit [Enter] to exit..." enter; exit 1; }```
+test ! -d /tmp/foo && { read -p "Directory /tmp/foo not found. Hit [Enter] to exit..." enter; exit 1; }
+```
 
 ## Logical OR (||)
 Logical OR (||) is boolean operator. It can execute commands or shell functions based on the exit status of another command.

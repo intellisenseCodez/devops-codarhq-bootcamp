@@ -1,0 +1,27 @@
+========================================================================
+			 MY SYSTEM INFO
+========================================================================
+Author: Oyekanmi Lekan (DevOps Eng)
+Date:13/may/2025
+Team: Developer
+========================================================================
+
+Details:
+CURRENT USER: vagrant
+OS NAME: Linux
+HOSTNAME: dev-linux
+Numbers of logged in users: 1
+Memory Info: 
+	Total Memory:  2.0G 
+	Used Memory:  388M 
+	Free Memory:  1.6G
+Disk Info: 
+	Total Disk:  40G 
+	Used Dist:  1.5G 
+	Free Disk:  37G 
+	% Used:  4%
+========================================================================
+Report generated at 14/05/2025 20:55:42
+========================================================================
+
+
