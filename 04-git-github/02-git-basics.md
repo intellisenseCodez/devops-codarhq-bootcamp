@@ -74,7 +74,7 @@ To use Git, developers use specific commands to copy, create, change, and combin
     ```bash
     git push origin <branch_name>
     git push --force origin <branch_name>
-    ``
+    ```
 
 # Git Best Practices
 1. Make small, frequent commits to capture your progress. This makes it easier to track changes and find bugs.
