@@ -18,14 +18,14 @@ sudo yum install -y java-1.8.0-openjdk git maven wget
 # Download and extract Tomcat
 echo "Installing Tomcat ${TOMCAT_VERSION}..."
 cd /tmp/
-wget $TOMURL 
-tar xzvf apache-tomcat-8.5.37.tar.gz
+sudo wget $TOMURL 
+sudo tar xzvf apache-tomcat-8.5.37.tar.gz
 
 
 
 # Create Tomcat user and set up directory
 echo "Configuring Tomcat user and permissions..."
-sudo useradd --home-dir /usr/local/tomcat8 --shell /sbin/nologin tomcat
+sudo useradd --home-dir $TOMCAT_INSTALL_DIR --shell /sbin/nologin tomcat
 
 sudo cp -r /tmp/apache-tomcat-8.5.37/* /usr/local/tomcat8/
 sudo chown -R tomcat.tomcat /usr/local/tomcat8
@@ -72,13 +72,6 @@ sudo firewall-cmd --get-active-zones
 sudo firewall-cmd --zone=public --add-port=8080/tcp --permanent
 sudo firewall-cmd --reload
 
-# Verify Tomcat is running
-if systemctl is-active --quiet tomcat; then
-    echo "Tomcat is running successfully!"
-else
-    echo "ERROR: Tomcat failed to start"
-    exit 1
-fi
 
 # Application deployment
 echo "Deploying application..."
@@ -86,20 +79,17 @@ cd /vagrant/
 mvn install
 
 sudo systemctl stop tomcat
-sleep 60
+sleep 120
 
-sudo rm -rf /usr/local/tomcat8/webapps/ROOT
+sudo rm -rf /usr/local/tomcat8/webapps/ROOT*
 
+sudo cp /vagrant/target/$APP_WAR /usr/local/tomcat8/webapps/ROOT.war
 
-sudo cp /vagrant/target/vprofile-v2.war /usr/local/tomcat8/webapps/ROOT.war
+sudo systemctl start tomcat
+sleep 300
 
 sudo chown tomcat.tomcat /usr/local/tomcat8/webapps -R
 
-
-sudo systemctl start tomcat
-
-# sleep 120
-# sudo cp ${APP_PROPERTIES} ${TOMCAT_INSTALL_DIR}/webapps/ROOT/WEB-INF/classes/application.properties
-# sudo systemctl restart tomcat
+sudo systemctl restart tomcat
 
 echo "Tomcat installation and configuration completed successfully!"

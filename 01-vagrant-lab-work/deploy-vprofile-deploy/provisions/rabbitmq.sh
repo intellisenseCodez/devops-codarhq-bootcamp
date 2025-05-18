@@ -47,3 +47,10 @@ sudo rabbitmq-plugins enable rabbitmq_management
 
 
 sudo systemctl restart rabbitmq-server
+
+# Enabling the firewall and allowing port 25672 to access the rabbitmq permanently
+sudo systemctl start firewalld
+sudo systemctl enable firewalld
+sudo firewall-cmd --get-active-zones
+sudo firewall-cmd --zone=public --add-port=25672/tcp --permanent
+sudo firewall-cmd --reload
