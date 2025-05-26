@@ -15,9 +15,9 @@ A computer network works by connecting multiple devices (computers, servers, rou
 
 3. **Data Transmission**: Now that communication is up and running, it's time for our devices to send and receive data. This data is broken down into small chunks or 'packets' to be sent across the network to the receiving device
 
-4. **Routing**: A packet doesn't necessarily travel straight from the source to the destination. It journeys across the network, guided by various devices (like routers and switches) to reach its final destination. There are a few reasons for this, that we’ll cover more as go through this guide
+4. **Routing**: A packet doesn't necessarily travel straight from the source to the destination. It journeys across the network, guided by various devices (like routers and switches) to reach its final destination. 
 
-5. **Data Receipt and Confirmation***: Upon reaching the destination, the receiving device sends a confirmation back to the sender. If the sender doesn't receive this confirmation indicating that something went awry with the transmission, it will attempt to resend the data
+5. **Data Receipt and Confirmation**: Upon reaching the destination, the receiving device sends a confirmation back to the sender. If the sender doesn't receive this confirmation indicating that something went awry with the transmission, it will attempt to resend the data
 
 
 ## Networking basics: Important terms and concepts
@@ -31,12 +31,13 @@ Before we get into more complex networking details, we need to take a second and
     - a MAC address.
 
 !["Network Interface Card"](../resources/images/NIC.png)
+Ethernet Port, Wifi Card, and USB NIC
 
 3. **MAC Address**: This 'Media Access Control' address also known as Physical and hardware address is a unique and permanent address assigned to a NIC by its manufacturer. It's like your device's postal address on the network.
 
 !["MAC Address"](../resources/images/MAC.png)
 
-The first six digits 00:1B:44 is called Organizational Unique Identifier (OUI), is provided by the manufacturer and the rest of the digit is 11:3A: B7 which is NIC Address.
+The first six digits 00:1B:44 is called *Organizational Unique Identifier (OUI)*, is provided by the manufacturer and the rest of the digit is 11:3A: B7 which is *NIC Address*.
 
 4. **IP Address**: This is another unique identifier, but assigned by the network according to its own rules. Think of it as a temporary P.O. Box number that can change. There are 4 basic types of IP addresses:
     - **Public IP**: accessible directly over the internet.
@@ -83,10 +84,30 @@ The first six digits 00:1B:44 is called Organizational Unique Identifier (OUI), 
 16. **ISP**: Your Internet Service Provider is the company that provides your Internet access
 
 
+## Analogy
+
+### Case Study 1
+!["Network Topology"](../resources/images/nps1.png)
+
+### Case Study 2
+!["Network Topology"](../resources/images/nps2.png)
 
 
+## Funtions of Router Gateway
+
+## Proxy Server
+!["Proxy Server"](../resources/images/proxy-server.png)
 
 
+## Caching
+Caching is a technique in computing that stores frequently accessed data or resources in a temporary storage location, called a cache, to improve performance by enabling faster retrieval.
+!["Cache"](../resources/images/cache.png)
+
+## Network Address Translation (NAT)
+!["NAT"](../resources/images/nat.png)
+
+## Firewall
+!["Firewall"](../resources/images/firewall.png)
 
 ## Import Links
 * https://zerotomastery.io/blog/introduction-to-networking/

@@ -45,7 +45,6 @@ sudo rabbitmqctl set_user_tags test administrator
 # enable the Management Plugin to use a web-based interface to administer RabbitMQ.
 sudo rabbitmq-plugins enable rabbitmq_management
 
-
 sudo systemctl restart rabbitmq-server
 
 # Enabling the firewall and allowing port 25672 to access the rabbitmq permanently

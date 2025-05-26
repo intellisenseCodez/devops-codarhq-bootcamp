@@ -42,7 +42,7 @@ Subnetting is the process of dividing a large network (IP address space) into sm
 
 ### Classful IP Networks
 
-!["Ipv4 Address"](../resources/images/classful-IP.png)
+!["Ipv4 Address"](../resources/images/classful-IP.jpg)
 
 
 ## Classless Inter-Domain Routing 
@@ -56,3 +56,22 @@ Suppose a company has a block of 256 public IP addresses provided by the local s
 ![""](../resources/images/block-of-256-addresses.svg)
 
 The IP address block is 37.1.1.0 , written in slash notation as 37.1.1.0/24. Using the CIDR, we can easily calculate that the boundaries of this network are Network ID 37.1.1.0 and Broadcast address 37.1.1.255, as shown in figure 1 above
+
+
+## Ports
+In networking, ports are logical channels or endpoints used to identify specific services or applications running on a device. Ports allow multiple services to run on a single IP address by directing incoming data to the appropriate application. Each port is associated with a number ranging from 0 to 65535.
+
+- Ports help computers distinguish between different types of network traffic.
+- For example, a server might be running both a web server and an email server. Using different ports allows the computer to route incoming web traffic to the web server and email traffic to the email server.
+
+- **HTTP (80)**: Used for standard web traffic.
+- **HTTPS (443)**: Used for secure web traffic (encrypted with SSL/TLS).
+- **FTP (21)**: Used for File Transfer Protocol.
+- **SSH (22)**: Used for Secure Shell (remote login and command execution).
+- **SMTP (25)**: Used for sending emails via Simple Mail Transfer Protocol.
+- **DNS (53)**: Used for Domain Name System services
+
+
+Links
+- https://www.submarinecablemap.com/
+- https://cidr.xyz/
