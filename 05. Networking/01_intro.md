@@ -96,12 +96,12 @@ The first six digits 00:1B:44 is called *Organizational Unique Identifier (OUI)*
 ## Funtions of Router Gateway
 
 ## Proxy Server
-!["Proxy Server"](../resources/images/proxy-server.png)
+!["Proxy Server"](../resources/images/proxy_server.png)
 
 
 ## Caching
 Caching is a technique in computing that stores frequently accessed data or resources in a temporary storage location, called a cache, to improve performance by enabling faster retrieval.
-!["Cache"](../resources/images/cache.png)
+!["Cache"](../resources/images/caching.png)
 
 ## Network Address Translation (NAT)
 !["NAT"](../resources/images/nat.png)
