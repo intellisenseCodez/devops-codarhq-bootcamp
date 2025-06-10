@@ -1,5 +1,7 @@
 .vagrant/
 .DS_Store
+
+*/projects/devops_tool_inventory
 env
 venv
 .env
