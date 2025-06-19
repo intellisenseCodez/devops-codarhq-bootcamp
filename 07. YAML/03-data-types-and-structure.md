@@ -8,12 +8,12 @@ key: value
 ## YAML Data Types
 | Type| Shorthand  | Example |
 |-----------|-------------|-------------|
-| String | `!!str` | `name: "DevOps"` |
-| Number | `!!int` or `!!float` | `name: "DevOps"` |
-| Boolean | `!!bool` | `name: "DevOps"` |
-| Null | `!!null` | `name: "DevOps"` |
-| List | `!!seq` | `name: "DevOps"` |
-| Dictionary | `!!omap` | `name: "DevOps"` |
+| String | `!!str` |  |
+| Number | `!!int` or `!!float` |  |
+| Boolean | `!!bool` |  |
+| Null | `!!null` |  |
+| List | `!!seq` |  |
+| Dictionary | `!!omap` |  |
 | Set | `!!set` |  |
 | Pairs | `!!pairs` |  |
 | Map | `!!map` |  |
