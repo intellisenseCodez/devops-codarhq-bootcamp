@@ -6,17 +6,17 @@ key: value
 ```
 
 ## YAML Data Types
-| Type| Example  | Example |
+| Type| Shorthand  | Example |
 |-----------|-------------|-------------|
-| String | `name: "DevOps"` | `name: "DevOps"` |
-| Number | `port: 8080` | `name: "DevOps"` |
-| Boolean | `enabled: true` | `name: "DevOps"` |
-| Null | `log_level: null` | `name: "DevOps"` |
-| List | `tools: [docker, kubernetes]` | `name: "DevOps"` |
-| Dictionary | `metadata: {env: prod}` | `name: "DevOps"` |
-| Set | `tools: [docker, kubernetes]` | `name: "DevOps"` |
-| Pairs | `metadata: {env: prod}` | `name: "DevOps"` |
-| Map | `metadata: {env: prod}` | `name: "DevOps"` |
+| String | `!!str` | `name: "DevOps"` |
+| Number | `!!int` or `!!float` | `name: "DevOps"` |
+| Boolean | `!!bool` | `name: "DevOps"` |
+| Null | `!!null` | `name: "DevOps"` |
+| List | `!!seq` | `name: "DevOps"` |
+| Dictionary | `!!omap` | `name: "DevOps"` |
+| Set | `!!set` |  |
+| Pairs | `!!pairs` |  |
+| Map | `!!map` |  |
 
 
 
@@ -67,9 +67,11 @@ email: Null
 ```
 Null value can also be written as `null`, `Null`, `NULL`.
 
+
 ## Advance Data Types
 
 ### Arrays/Lists *(YAML calls them sequences)*
+Sequence of arbitrary values.
 ```yaml
 languages:
   - Python
@@ -84,6 +86,8 @@ languages: [Python, Go, Shell]
 ```
 
 ### Maps/Dictionaries *(YAML calls it mapping)*
+Ordered sequence of key: value pairs without duplicates.
+
 ```yaml
 cloud: 
   provider: AWS
@@ -97,6 +101,15 @@ server:
   ports:
     - 80
     - 443
+```
+
+### Set
+Unordered set of non-equal values.
+```yaml
+tools:
+  ? Docker
+  ? Kubernetes
+  ? Terraform
 ```
 
 ### Date and Time
