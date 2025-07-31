@@ -1,12 +1,81 @@
-## Prometheus Architecture
+# Prometheus Setup and Architecture
 
-### Overview
+## Introduction
 
 Prometheus is a popular open-source monitoring and alerting system written in Golang, capable of **collecting and processing metrics** from various targets. You can also **query, view, analyse the metrics and get alerted based on the thresholds**.
 
+The basic function of Monitoring tools like Prometheus is:
+
+1. Collecting metrics from systems and applications.
+2. Visualizing the metrics through dashboard.
+3. Triggering an alert when neccessary.
+
+## How to Set Up Prometheus using Docker or Docker Compose
+
+This guide helps you set up **Prometheus**, a leading open-source monitoring tool, using **Docker** or **Docker Compose**.
+
+## Run Prometheus with Docker
+
+1.  Create a Prometheus config file
+
+    Create a file named prometheus.yml in your working directory:
+
+    ```bash
+    # prometheus.yml
+    global:
+    scrape_interval: 15s
+
+    scrape_configs:
+    - job_name: "prometheus"
+        static_configs:
+        - targets: ["localhost:9090"]
+    ```
+
+2. Run Prometheus container
+
+    ```bash
+    docker run -d \
+               --name prometheus \
+               -p 9090:9090 \
+               -v $(pwd)/prometheus.yml:/etc/prometheus/prometheus.yml \
+               prom/prometheus
+    ```
+
+**This maps the config file and exposes Prometheus on port 9090.**
+
+## Run Prometheus with Docker Compose
+1. Create prometheus.yml
+    Same as above. Place this file in the same directory as your docker-compose.yml.
+
+2. Create docker-compose.yml
+
+    ```bash
+    services:
+    prometheus:
+        image: prom/prometheus:latest
+        container_name: prometheus
+        volumes:
+        - ./prometheus.yml:/etc/prometheus/prometheus.yml
+        ports:
+        - "9090:9090"
+    ```
+
+3. Start Prometheus
+
+    ```bash
+    docker-compose up -d
+    ```
+
+## Access Prometheus
+Once running, open your browser and go to: http://localhost:9090
+
+
+## Architecture of Prometheus
 Here is the high level overview of Prometheus architecture.
 
 ![Prometheus architecture](https://devopscube.com/content/images/2025/03/prometheus-architecture.gif)
+
+*Image Source: [Devopscube](https://devopscube.com/prometheus-architecture/)*
 
 ### Key Components
 
@@ -53,6 +122,7 @@ Prometheus primarily consists of the following.
 
     1. Node Exporter
     2. Blackbox Exporter
+    3. Kube State Metrics
     
     You can see the list of Exporters from each category from the [official documentation](https://prometheus.io/docs/instrumenting/exporters/?ref=devopscube.com).
 

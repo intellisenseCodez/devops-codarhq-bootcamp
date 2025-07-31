@@ -10,6 +10,8 @@ In your repository, create a new folder and file:
 .github/workflows/first-action.yml
 ```
 
+**Note**: For GitHub to discover any GitHub Actions workflows in your repository, you must save the workflow files in a directory called `.github/workflows`.
+
 ## 2. Add Basic Workflow Configuration
 ```bash
 # This is your first GitHub Actions workflow file

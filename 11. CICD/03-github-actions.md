@@ -1,6 +1,8 @@
 # What Is GitHub Actions?
 
-GitHub Actions is a platform for continuous integration / continuous delivery (CI/CD). It enables you to automate build, testing, and deployment pipelines. It also lets you run arbitrary code on a specified repository when an event occur.
+GitHub Actions is a platform for continuous integration / continuous delivery (CI/CD). It enables you to automate your build, testing, and deployment pipelines. It also lets you run arbitrary code on a specified repository when an event occur.
+
+GitHub provides `Linux`, `Windows`, and `macOS` virtual machines to run your workflows, or you can host your own `self-hosted runners` in your own data center or cloud infrastructure.
 
 
 ## GitHub Actions Architecture and Concepts
@@ -20,12 +22,16 @@ GitHub Actions allows you to configure your workflow to be triggered once a spec
 
     An event is a specific activity in a repository that triggers a workflow run. For example, activity can originate from GitHub when someone creates a pull request, opens an issue, or pushes a commit to a repository. 
     
-    You can also trigger a workflow run on a schedule, by posting to a REST API, or man
+    You can also trigger a workflow run on a schedule, by posting to a REST API, or man.
+
+    For more information about when your workflow can run, see [Events that trigger workflows](https://docs.github.com/en/actions/reference/events-that-trigger-workflows).
 
 
 - **GitHub Actions Jobs**
 
-    A job is a set of steps in a workflow that execute on the same runner. Each step is either a shell script that will be executed, or an action that will be run. Steps are executed in order and are dependent on each other.
+    A job is a set of steps in a workflow that execute on the same runner. Each step is either a shell script that will be executed, or an action that will be run. 
+    
+    Your workflow contains one or more jobs which can run in **sequential** or in **parallel** order.
 
 
 - **GitHub Actions Steps**
